@@ -1,3 +1,7 @@
+/*  This is the brain of the app. It holds the actual list of tasks securely 
+    in memory and executes all the business logic (adding, updating, deleting) 
+    and is entirely independent of the visual interface. */
+
 import 'package:flutter/material.dart';
 import '../models/task_model.dart';
 
