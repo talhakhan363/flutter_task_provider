@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'providers/task_provider.dart';
-// import 'screens/home_screen.dart'; --> We will build this next!
+import 'package:flutter/material.dart'; // Flutter's core UI toolkit
+import 'package:provider/provider.dart'; // Provider package for state management
+import 'providers/task_provider.dart'; // Importing our custom TaskProvider to manage the state of tasks
+import 'screens/home_screen.dart'; // Importing the HomeScreen where the main UI will be built, which will interact with TaskProvider to display and manage tasks
 
 void main() {
   runApp(
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const Scaffold(body: Center(child: Text("Home Screen Goes Here"))),
+      home: const HomeScreen(), // The main screen of the app where tasks will be displayed and managed
     );
   }
 }
