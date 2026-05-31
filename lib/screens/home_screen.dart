@@ -1,3 +1,8 @@
+/* This is the View layer (the interface) of my application. Its purpose is to 
+   listen to the Provider for data updates and render the interactive UI elements 
+   like the animated task list, checkboxes, and bottom sheet without getting 
+   bogged down by executing the raw data logic itself. */
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/task_provider.dart';
