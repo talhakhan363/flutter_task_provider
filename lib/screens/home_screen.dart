@@ -49,8 +49,32 @@ class HomeScreen extends StatelessWidget {
                     decoration: BoxDecoration(color: Colors.redAccent.withOpacity(0.8), borderRadius: BorderRadius.circular(16)),
                     child: const Icon(Icons.delete_sweep, color: Colors.white, size: 30),
                   ),
+                  // onDismissed: (direction) {
+                  //   context.read<TaskProvider>().deleteTask(task.id);
+                  //   ScaffoldMessenger.of(context).showSnackBar(
+                  //     SnackBar(
+                  //       content: const Text('Task deleted'),
+                  //       backgroundColor: Colors.grey[900],
+                  //       duration: const Duration(seconds: 2),
+                  //       action: SnackBarAction(
+                  //         label: 'Undo',
+                  //         textColor: Colors.tealAccent,
+                  //         onPressed: () {
+                  //           context.read<TaskProvider>().addTask(task.title);
+                  //         },
+                  //       ),
+                  //     ),
+                  //   );
+                  // },
                   onDismissed: (direction) {
+                    // 1. Capture the exact task and its current position
+                    final deletedTask = task;
+                    final deletedIndex = index;
+
+                    // 2. Delete it from the provider
                     context.read<TaskProvider>().deleteTask(task.id);
+
+                    // 3. Show the SnackBar
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: const Text('Task deleted'),
@@ -60,7 +84,8 @@ class HomeScreen extends StatelessWidget {
                           label: 'Undo',
                           textColor: Colors.tealAccent,
                           onPressed: () {
-                            context.read<TaskProvider>().addTask(task.title);
+                            // 4. Re-insert the exact task back into its original slot!
+                            context.read<TaskProvider>().insertTask(deletedIndex, deletedTask);
                           },
                         ),
                       ),
