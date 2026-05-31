@@ -31,6 +31,12 @@ class TaskProvider extends ChangeNotifier {
     }
   }
 
+  // Task 4: Undo a deleted task (Insert at specific index)
+  void insertTask(int index, Task task) {
+    _tasks.insert(index, task);
+    notifyListeners();
+  }
+
   // Task 3: Delete a Task
   void deleteTask(String id) {
     _tasks.removeWhere((task) => task.id == id);
